@@ -7,11 +7,11 @@ Jika ingin solusi lebih baik dan dapat dikelola oleh OpenWrt (start/stop otomati
 
 Langkah 1: Buat File Init Script
 
-Buat file baru:
+#Buat file baru:
 
 nano /etc/init.d/flask-server
 
-Tambahkan isi berikut:
+#Tambahkan isi berikut:
 
 #!/bin/sh /etc/rc.common
 # OpenWrt Init Script untuk Flask Server
@@ -33,21 +33,22 @@ stop() {
 
 Simpan file (CTRL+X, lalu Y, lalu Enter).
 
-Langkah 2: Beri Izin Eksekusi
+#Langkah 2: Beri Izin Eksekusi
 
 chmod +x /etc/init.d/flask-server
 
-Langkah 3: Aktifkan & Jalankan
+#Langkah 3: Aktifkan & Jalankan
 
-/etc/init.d/flask-server enable 
 # Agar otomatis saat booting
-/etc/init.d/flask-server start  
-# Jalankan manual sekarang
+/etc/init.d/flask-server enable 
 
-Cek status:
+# Jalankan manual sekarang
+/etc/init.d/flask-server start  
+
+#Cek status:
 
 ps | grep server.py
 
-Hentikan manual:
+#Hentikan manual:
 
 /etc/init.d/flask-server stop
