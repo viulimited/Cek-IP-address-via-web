@@ -39,8 +39,10 @@ chmod +x /etc/init.d/flask-server
 
 Langkah 3: Aktifkan & Jalankan
 
-/etc/init.d/flask-server enable  # Agar otomatis saat booting
-/etc/init.d/flask-server start   # Jalankan manual sekarang
+/etc/init.d/flask-server enable 
+# Agar otomatis saat booting
+/etc/init.d/flask-server start  
+# Jalankan manual sekarang
 
 Cek status:
 
