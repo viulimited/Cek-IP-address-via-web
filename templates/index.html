@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Perangkat</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        table { width: 60%; margin: auto; border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid black; }
+        .online { background-color: lightgreen; }
+        .offline { background-color: lightcoral; }
+    </style>
+</head>
+<body>
+    <h2>Status Perangkat di Jaringan</h2>
+    <table>
+        <tr>
+            <th>IP Address</th>
+            <th>Nama Perangkat</th>
+            <th>Status</th>
+        </tr>
+        <tbody id="deviceList"></tbody>
+    </table>
+
+    <script>
+        function fetchStatus() {
+            fetch("/status")
+            .then(response => response.json())
+            .then(data => {
+                const deviceList = document.getElementById("deviceList");
+                deviceList.innerHTML = "";
+
+                Object.entries(data).forEach(([ip, info]) => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `<td>${ip}</td><td>${info.name}</td><td class="${info.status ? 'online' : 'offline'}">${info.status ? 'Online' : 'Offline'}</td>`;
+                    deviceList.appendChild(row);
+                });
+            });
+        }
