@@ -21,7 +21,7 @@ STOP=10
 
 start() {
     echo "Menjalankan Flask Server..."
-    python3 /path/ke/server.py > /tmp/server.log 2>&1 &
+    python3 /root/server.py > /tmp/server.log 2>&1 &
     echo $! > /var/run/flask-server.pid
 }
 
